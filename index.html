@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Lokal</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 30px;
+    }
+    input {
+      padding: 8px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Login Manual</h2>
+  <form onsubmit="login(event)">
+    <label>Username:</label>
+    <input type="text" id="username" required />
+    
+    <label>Password:</label>
+    <input type="password" id="password" required />
+    
+    <button type="submit">Login</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    // Ganti ini sesuai data valid
+    const validUser = "admin";
+    const validPass = "admin123";
+
+    function login(event) {
+      event.preventDefault(); // Biar gak reload halaman
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const result = document.getElementById("result");
+
+      if (user === validUser && pass === validPass) {
+        result.innerHTML = "✅ Login Berhasil";
+        result.style.color = "green";
+      } else {
+        result.innerHTML = "❌ Login Gagal";
+        result.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
